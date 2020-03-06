@@ -28,7 +28,7 @@
                  rowKey="id"
                  :dataSource="data"
         >
-          <template v-for="col in ['dictName', 'dictValue', 'dictFieldType','dictFieldLength','createTime','createManId','updateTime','updateManId']" :slot="col" slot-scope="text, record, index">
+          <template v-for="col in ['dictName', 'dictValue', 'dictFieldType','dictFieldLength','createTime','createManId','updateTime','updateManId']" :slot="col" slot-scope="text, record">
             <div :key="col">
               <a-input
                 v-if="record.editable"
@@ -40,7 +40,7 @@
             </div>
           </template>
 
-          <template slot="operation" slot-scope="text, record, index">
+          <template slot="operation" slot-scope="text, record">
             <div class='editable-row-operations'>
         <span v-if="record.editable">
           <a @click="() => save(record.id)" style="margin-right: 10px">保存</a>
